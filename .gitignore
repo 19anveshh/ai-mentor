@@ -1,0 +1,14 @@
+__pycache__/
+*.py[c]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+.env
+.venv
+ipynb_checkpoints
+.DS_Store
+*.ipynb
+EVAL_REPORTS/*.json

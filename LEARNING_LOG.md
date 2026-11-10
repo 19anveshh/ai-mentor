@@ -1,28 +1,28 @@
 # Learning Log
 
-## Week 1 — Phase 1: Foundation
-Date: 
-- What worked:
-- What didn't:
-- Judgments made:
-- Commit for next week:
+**Student:** Maddela Anvesh  
+**Purpose:** One entry per week. Record what you studied, 3 key takeaways, and link to code.
 
-## Week 2 — Phase 1: Foundation
-Date:
-- What worked:
-- What didn't:
-- Judgments made:
-- Commit for next week:
+---
 
-## Week 3 — Phase 1: Foundation
-Date:
-- What worked:
-- What didn't:
-- Judgments made:
-- Commit for next week:
+## How to Use
 
-## Week 4 — Phase 1: Foundation
-Date:
-- Gate eval report: (link to EVAL_REPORTS/)
-- Cost/latency numbers:
-- Runbook: (link)
+Every Sunday, after your weekly ritual, add one entry.
+
+Format:
+```
+### Week N — Topic
+**Source:** (blog/video/docs URL)
+**3 Takeaways:**
+1. ...
+2. ...
+3. ...
+**Code Link:** (path or GitHub URL)
+**Questions for Mentor:** ...
+```
+
+---
+
+## Entries
+
+*(Empty — fill in after Week 1)*
