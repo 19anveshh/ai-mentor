@@ -43,8 +43,8 @@ context = "\n\n".join(
 
 # 7. Initialize LLM
 model = init_chat_model(
-    model="YOUR_GROQ_MODEL_NAME",  # Replace with actual model name, e.g. "llama-3.1-8b-instant"
-    model_provider="groq",
+    model="openai/gpt-oss-120b",
+    model_provider="groq",  # Verify this model is available on Groq; may need provider change
     temperature=0.3
 )
 
