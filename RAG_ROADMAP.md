@@ -165,10 +165,69 @@ Structured roadmap for mastering Retrieval-Augmented Generation (RAG) from funda
 
 ---
 
+## How This Maps to the 24-Week Mentorship
+
+| RAG Phase | Weeks | Mentorship Phase | Mentorship Gate |
+|-----------|-------|-----------------|-----------------|
+| 0 Prerequisites | 1–2 | Phase 1: Foundation | Working local ML pipeline + eval |
+| 1 Naive RAG | 3–4 | Phase 1: Foundation | Working local ML pipeline + eval |
+| 2 Intermediate RAG | 5–8 | Phase 2: Serving | Deployed API + latency/cost log |
+| 3 Advanced RAG | 9–12 | Phase 3: Fine-tuning | Fine-tuned model + eval vs baseline |
+| 4 Production RAG | 13–16 | Phase 4: Infra | K8s deploy + chaos test runbook |
+| 5 Expert RAG | 17–20 | Phase 5: Signature Projects | 2 shipped projects |
+| (Job Ready) | 21–24 | Phase 6: Job Ready | Portfolio live + 5 OSS PRs merged |
+
+RAG Phase 5's OSS PRs count toward mentorship Phase 6's 5 merged PRs requirement.
+
+## Integration with Mentorship Artifacts
+
+| Artifact | How RAG uses it |
+|----------|-----------------|
+| `ROADMAP.md` | This file — your master plan |
+| `PROGRESS.md` | Update current RAG phase/week after each Sunday ritual |
+| `LEARNING_LOG.md` | Weekly entry: what worked, what didn't, judgments made (e.g., "chose hybrid search over pure vector") |
+| `EVAL_REPORTS/` | One JSON per phase gate: `rag_naive_baseline.json`, `intermediate_rag_eval.json`, etc. |
+| `ARCHITECTURE.md` | Record RAG architecture decisions: chunking strategy, embedding model, reranker choice, vector DB |
+| `COST_LOG.md` | Log cost/latency per RAG deployment (API calls, embedding tokens, vector DB reads) |
+
+## Eval Dataset Template (JSONL)
+
+Save as `eval_dataset.jsonl`. One line per QA pair:
+
+```jsonl
+{"question": "What is the refund policy?", "answer": "30 days", "retrieval_context": ["Refunds accepted within 30 days of purchase"]}
+{"question": "How do I reset my password?", "answer": "Click forgot password", "retrieval_context": ["Password reset link sent to email"]}
+```
+
+Use this for hit@k, MRR, RAGAS evaluation in every phase.
+
+## RAGAS Quick Setup
+
+```bash
+.venv\Scripts\pip install ragas datasets
+```
+
+```python
+from ragas import evaluate
+from ragas.metrics import faithfulness, answer_relevancy, context_precision, context_recall
+
+# Run on your RAG outputs
+result = evaluate(dataset, metrics=[faithfulness, answer_relevancy, context_precision, context_recall])
+```
+
+## Prerequisites Check Before Starting Phase 0
+
+- [ ] Python 3.11+ installed
+- [ ] `uv` installed (`uv --version` works)
+- [ ] Git configured (`git config --global user.name` and `email` set)
+- [ ] GitHub account with SSH key added
+- [ ] Can activate `.venv` and run `python baseline_pipeline.py`
+
+If any box is unchecked, fix it before Week 1.
+
 ## Next Immediate Action
 
-Pick your starting point:
-- **Week 1–2:** Finish Python/ML prerequisites (you're already doing this in Phase 1 Foundation)
-- **Week 3:** Build naive RAG with LangChain + Chroma + PDF loader
+1. Finish Week 1–2 prerequisites (Python/ML foundations — you're already doing this)
+2. Then start Week 3: Naive RAG with LangChain + Chroma + PDF loader
 
-Want me to create Week 3 starter code (naive RAG pipeline) and push it to your `ai-mentor` GitHub repo?
+Want me to create Week 3 starter code and push it to your repo?
